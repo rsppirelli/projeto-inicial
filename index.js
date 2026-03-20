@@ -13,6 +13,17 @@ app.post('/mensagem', (req, res) => {
   res.json({ recebido: texto });
 });
 
+app.put('/mensagem/:id', (req, res) => {
+  const { id } = req.params;
+  const { texto } = req.body;
+  res.json({ id, atualizado: texto });
+});
+
+app.delete('/mensagem/:id', (req, res) => {
+  const { id } = req.params;
+  res.json({ id, removido: true });
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
